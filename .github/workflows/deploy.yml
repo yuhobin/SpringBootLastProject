@@ -37,7 +37,7 @@ jobs:
       # Add Known_hosts
       - name: Add Known_hosts
         run: |
-          ssh-keyscan -H ed25519 15.164.210.128 >> ~/.ssh/known_hosts
+          ssh-keyscan -t ed25519 15.164.210.128 >> ~/.ssh/known_hosts
       # Jar파일을 AWS 전송 => Docker이미지
       - name: Deploy to Server with rsync
         run: |
@@ -46,8 +46,8 @@ jobs:
       - name: Run command
         run: |
           ssh -i ~/.ssh/id_ed25519 ubuntu@15.164.210.128 << 'EOF'
-            pkill -f 'java -jar' || true
-            nohup java -jar ~/app/SpringBootLastProject-0.0.1-SNAPSHOT.jar > log.txt 2>&1 &
-            EOF
+          pkill -f 'java -jar' || true
+          nohup java -jar ~/app/SpringBootLastProject-0.0.1-SNAPSHOT.jar > log.txt 2>&1 &
+          EOF
       # 9090 포트 다시 구동 => docker run
   
