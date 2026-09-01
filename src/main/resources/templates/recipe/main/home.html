@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main class="container py-4 py-lg-5">
+  
+  <section class="hero d-flex align-items-center text-white mb-5">
+    <div class="col-lg-7 col-xl-6">
+      <span class="badge bg-warning text-dark fw-bold rounded-pill px-3 py-2 mb-3">AI 맞춤 레시피 추천</span>
+      <h1 class="display-4 mb-3">오늘 어떤 요리를<br>시작해볼까요?</h1>
+      <p class="text-white-50 fs-5 mb-4 font-normal">냉장고에 남은 재료만 입력해도 근사한 한 끼가 완성됩니다.</p>
+      
+      <div class="search-box d-flex align-items-center mb-4">
+        <i class="bi bi-search text-muted fs-5 ms-3"></i>
+        <input type="text" class="form-control border-0 bg-transparent shadow-none px-3" placeholder="재료, 요리명 검색 (예: 김치, 돼지고기, 계란)">
+        <button class="btn btn-brand btn-lg rounded-pill px-4 flex-shrink-0">검색</button>
+      </div>
+      
+      <div class="d-flex gap-2">
+        <a class="btn btn-light rounded-pill px-4 fw-bold text-dark d-flex align-items-center gap-2 shadow-sm" href="#">
+          <i class="bi bi-refrigerator text-warning"></i> 냉장고 털기
+        </a>
+        <a class="btn btn-outline-light rounded-pill px-4 fw-semibold" href="#">전체 레시피 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5 py-3">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="text-warning section-title-sub mb-1">POPULAR RECIPES</p>
+        <h2 class="fw-bold m-0">오늘의 인기 레시피</h2>
+      </div>
+      <a href="#" class="text-secondary text-decoration-none fw-semibold">전체보기 <i class="bi bi-chevron-right small"></i></a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="recipe-card">
+          <div class="recipe-img-wrapper">
+            <img class="recipe-img" src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80" alt="김치볶음밥">
+            <div class="badge-like"><i class="bi bi-heart-fill"></i></div>
+          </div>
+          <div class="p-3">
+            <div class="d-flex align-items-center gap-1 mb-1">
+              <i class="bi bi-star-fill text-warning small"></i>
+              <span class="fw-bold small">4.9</span>
+              <span class="text-muted small ms-1">(324)</span>
+            </div>
+            <h5 class="fw-bold fs-6 mb-2 text-truncate">매콤달콤 김치볶음밥</h5>
+            <div class="d-flex justify-content-between text-muted small border-top pt-2 mt-2">
+              <span><i class="bi bi-clock me-1"></i>20분</span>
+              <span class="text-success fw-semibold">쉬움</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="recipe-card">
+          <div class="recipe-img-wrapper">
+            <img class="recipe-img" src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=700&q=80" alt="불고기">
+            <div class="badge-like"><i class="bi bi-heart"></i></div>
+          </div>
+          <div class="p-3">
+            <div class="d-flex align-items-center gap-1 mb-1">
+              <i class="bi bi-star-fill text-warning small"></i>
+              <span class="fw-bold small">4.8</span>
+              <span class="text-muted small ms-1">(287)</span>
+            </div>
+            <h5 class="fw-bold fs-6 mb-2 text-truncate">단짠단짠 소불고기</h5>
+            <div class="d-flex justify-content-between text-muted small border-top pt-2 mt-2">
+              <span><i class="bi bi-clock me-1"></i>40분</span>
+              <span class="text-warning fw-semibold">보통</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="recipe-card">
+          <div class="recipe-img-wrapper">
+            <img class="recipe-img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="만두전골">
+            <div class="badge-like"><i class="bi bi-heart"></i></div>
+          </div>
+          <div class="p-3">
+            <div class="d-flex align-items-center gap-1 mb-1">
+              <i class="bi bi-star-fill text-warning small"></i>
+              <span class="fw-bold small">4.8</span>
+              <span class="text-muted small ms-1">(251)</span>
+            </div>
+            <h5 class="fw-bold fs-6 mb-2 text-truncate">시원한 만두전골</h5>
+            <div class="d-flex justify-content-between text-muted small border-top pt-2 mt-2">
+              <span><i class="bi bi-clock me-1"></i>35분</span>
+              <span class="text-warning fw-semibold">보통</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="recipe-card">
+          <div class="recipe-img-wrapper">
+            <img class="recipe-img" src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80" alt="제육볶음">
+            <div class="badge-like"><i class="bi bi-heart"></i></div>
+          </div>
+          <div class="p-3">
+            <div class="d-flex align-items-center gap-1 mb-1">
+              <i class="bi bi-star-fill text-warning small"></i>
+              <span class="fw-bold small">4.7</span>
+              <span class="text-muted small ms-1">(198)</span>
+            </div>
+            <h5 class="fw-bold fs-6 mb-2 text-truncate">불향가득 제육볶음</h5>
+            <div class="d-flex justify-content-between text-muted small border-top pt-2 mt-2">
+              <span><i class="bi bi-clock me-1"></i>30분</span>
+              <span class="text-success fw-semibold">쉬움</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fridge-container p-4 p-lg-5 mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-4">
+        <span class="badge bg-dark rounded-pill px-3 py-2 mb-2">MY FRIDGE</span>
+        <h2 class="fw-bold mb-3">내 냉장고 속<br>맞춤 레시피</h2>
+        <p class="text-secondary mb-4">등록된 재료를 기반으로 지금 바로 만들 수 있는 최고의 요리를 추천합니다.</p>
+        <button class="btn btn-dark rounded-pill px-4 py-2 fw-semibold d-flex align-items-center gap-2">
+          <i class="bi bi-plus-circle"></i> 재료 관리하기
+        </button>
+      </div>
+      
+      <div class="col-lg-8">
+        <div class="mb-4 bg-white p-3 rounded-4 border border-warning-subtle">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <strong class="text-secondary small">보유 재료 (5개)</strong>
+            <span class="text-muted extra-small">최근 업데이트: 오늘</span>
+          </div>
+          <div class="d-flex flex-wrap gap-1">
+            <span class="ingredient-chip">🥚 계란</span>
+            <span class="ingredient-chip">🥕 당근</span>
+            <span class="ingredient-chip">🧅 양파</span>
+            <span class="ingredient-chip">🥔 감자</span>
+            <span class="ingredient-chip">🥩 돼지고기</span>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="fridge-card text-center">
+              <div class="fs-1 mb-2">🍳</div>
+              <h6 class="fw-bold mb-2">계란볶음밥</h6>
+              <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1">100% 즉시 가능</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="fridge-card text-center">
+              <div class="fs-1 mb-2">🥔</div>
+              <h6 class="fw-bold mb-2">감자조림</h6>
+              <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-3 py-1">간장 부족</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="fridge-card text-center">
+              <div class="fs-1 mb-2">🍲</div>
+              <h6 class="fw-bold mb-2">김치찌개</h6>
+              <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle rounded-pill px-3 py-1">두부 부족</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5 py-3">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="text-success section-title-sub mb-1">SEASONAL FOOD</p>
+        <h2 class="fw-bold m-0">8월 제철 재료</h2>
+      </div>
+      <a href="#" class="text-secondary text-decoration-none fw-semibold">더보기 <i class="bi bi-chevron-right small"></i></a>
+    </div>
+    
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <div class="season-card">
+          <div class="season-emoji">🍅</div>
+          <h5 class="fw-bold fs-6 mb-1">토마토</h5>
+          <span class="badge bg-danger-subtle text-danger rounded-pill">영양 가득</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="season-card">
+          <div class="season-emoji">🌽</div>
+          <h5 class="fw-bold fs-6 mb-1">옥수수</h5>
+          <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill">톡톡 씹히는 맛</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="season-card">
+          <div class="season-emoji">🐟</div>
+          <h5 class="fw-bold fs-6 mb-1">고등어</h5>
+          <span class="badge bg-info-subtle text-info-emphasis rounded-pill">풍부한 오메가3</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="season-card">
+          <div class="season-emoji">🍄</div>
+          <h5 class="fw-bold fs-6 mb-1">버섯</h5>
+          <span class="badge bg-success-subtle text-success rounded-pill">풍미 가득</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diet-container p-4 p-lg-5 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <p class="text-danger section-title-sub mb-1">WEEKLY DIET</p>
+        <h2 class="fw-bold m-0">이번 주 식단표</h2>
+      </div>
+      <button class="btn btn-outline-dark rounded-pill px-3 fw-semibold">식단 수정 <i class="bi bi-pencil-square ms-1"></i></button>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table table-custom align-middle text-center m-0">
+        <thead>
+          <tr>
+            <th style="width: 10%;"></th>
+            <th style="width: 18%;">월</th>
+            <th style="width: 18%;">화</th>
+            <th style="width: 18%;">수</th>
+            <th style="width: 18%;">목</th>
+            <th style="width: 18%;">금</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-muted fw-bold">아침</th>
+            <td>계란찜</td>
+            <td>야채죽</td>
+            <td>토스트</td>
+            <td>닭가슴살 샐러드</td>
+            <td>현미밥 & 김</td>
+          </tr>
+          <tr>
+            <th class="text-muted fw-bold">점심</th>
+            <td>산채비빔밥</td>
+            <td>뚝배기 불고기</td>
+            <td>돼지 김치찌개</td>
+            <td>제육덮밥</td>
+            <td>파카레</td>
+          </tr>
+          <tr>
+            <th class="text-muted fw-bold">저녁</th>
+            <td>차돌 된장찌개</td>
+            <td>달콤 닭볶음탕</td>
+            <td>제철 생선구이</td>
+            <td>궁중 잡채</td>
+            <td>돼지고기 김치찜</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

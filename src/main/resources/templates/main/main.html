@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI LIFE CAMPUS</title>
+<link rel="stylesheet" href="/css/main/main.css">
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="background">
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+        <div class="grid"></div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <div class="logoMark">AI</div>
+            AI LIFE
+        </div>
+        <div class="header-right">
+            <span class="header-link">AI 서비스 소개</span>
+            <span class="header-link">이용 안내</span>
+            <button class="login" onclick="alert('로그인 화면으로 이동합니다.')">로그인</button>
+        </div>
+    </header>
+
+    <section class="center">
+        <div class="badge">✦ AI와 함께하는 스마트 라이프</div>
+        <h1>무엇을 도와드릴까요?<br><span>원하는 서비스를 선택해 주세요.</span></h1>
+       
+    </section>
+
+    <main class="choice">
+
+        <!-- 냉장고 서비스 -->
+        <article class="card fridge" onclick="goFridge()">
+            <div class="icon">🧊</div>
+            <div class="fridge-art">🥦</div>
+            <div class="fridge-art two">🍅</div>
+            <small>AI RECIPE & FOOD</small>
+            <h2>냉장고를 부탁해</h2>
+           <p>
+            <button class="card-button">냉장고 서비스 시작하기　→</button>
+        </article>
+
+        <!-- 교육센터 서비스 -->
+        <article class="card campus" onclick="goCampus()">
+            <div class="icon">🎓</div>
+            <div class="campus-art">📚</div>
+            <div class="campus-art two">🤖</div>
+            <small>AI EDUCATION CENTER</small>
+            <h2>AI CAMPUS</h2>
+           
+            <button class="card-button">교육센터 입장하기　→</button>
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        AI LIFE PLATFORM <span>•</span> AI RECIPE <span>•</span> AI EDUCATION
+    </footer>
+</div>
+
+<script>
+function goFridge(){
+    // 실제 프로젝트에서는 아래 주소를 냉장고 메인 URL로 변경
+    location.href = "/recipe/main";
+}
+function goCampus(){
+    // 실제 프로젝트에서는 아래 주소를 교육센터 메인 URL로 변경
+    location.href = "/edu/main";
+}
+</script>
+</body>
+</html>

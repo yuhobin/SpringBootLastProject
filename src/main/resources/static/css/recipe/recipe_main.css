@@ -1,0 +1,236 @@
+@charset "UTF-8";
+:root {
+  --brand-primary: #f97316;
+  --brand-primary-hover: #ea580c;
+  --brand-dark: #1c1917;
+  --brand-bg: #fcfbf9;
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 20px 40px -10px rgba(249, 115, 22, 0.15);
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background-color: var(--brand-bg);
+  color: #292524;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.logo {
+  font-weight: 800;
+  color: var(--brand-primary);
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+.nav-link {
+  font-weight: 600;
+  color: #44403c;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: var(--brand-primary);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(28, 25, 23, 0.85) 0%, rgba(28, 25, 23, 0.4) 100%), 
+              url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=85") center/cover no-repeat;
+  padding: 4rem 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+.hero h1 {
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+/* Glass Search Bar */
+.search-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.search-box input::placeholder {
+  color: #a8a29e;
+  font-size: 0.95rem;
+}
+
+/* Card Design */
+.recipe-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+}
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+}
+.recipe-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 68%;
+}
+.recipe-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.recipe-card:hover .recipe-img {
+  transform: scale(1.05);
+}
+.badge-like {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.badge-like:hover {
+  transform: scale(1.1);
+}
+
+/* Fridge Section */
+.fridge-container {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 100%);
+  border-radius: 32px;
+  border: 1px solid #fed7aa;
+}
+.ingredient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #fecdd3;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #44403c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  transition: all 0.2s;
+}
+.ingredient-chip:hover {
+  background: #fff1f2;
+  transform: translateY(-1px);
+}
+.fridge-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.25rem;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  height: 100%;
+  transition: transform 0.2s;
+}
+.fridge-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Seasonal Grid */
+.season-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+.season-card:hover {
+  border-color: var(--brand-primary);
+  transform: translateY(-4px);
+}
+.season-emoji {
+  font-size: 2.75rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.season-card:hover .season-emoji {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Diet Table */
+.diet-container {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--card-shadow);
+}
+.table-custom {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+.table-custom th {
+  border: none;
+  color: #78716c;
+  font-weight: 600;
+  padding: 1rem;
+}
+.table-custom td {
+  border: none;
+  background: #fafaf9;
+  padding: 1rem;
+  font-weight: 600;
+  color: #292524;
+  transition: background 0.2s;
+}
+.table-custom td:first-child { border-radius: 12px 0 0 12px; }
+.table-custom td:last-child { border-radius: 0 12px 12px 0; }
+.table-custom tbody tr:hover td {
+  background: #ffedd5;
+  color: var(--brand-primary-hover);
+}
+
+/* Button & Utility */
+.btn-brand {
+  background-color: var(--brand-primary);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+.btn-brand:hover {
+  background-color: var(--brand-primary-hover);
+  color: #fff;
+}
+.section-title-sub {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.footer {
+  background: var(--brand-dark);
+  color: #a8a29e;
+  border-top: 1px solid #292524;
+}

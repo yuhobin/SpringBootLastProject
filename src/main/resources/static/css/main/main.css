@@ -1,0 +1,136 @@
+@charset "UTF-8";
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;font-family:"Noto Sans KR","Malgun Gothic",Arial,sans-serif}
+body{background:#f7f8fc;color:#111936;overflow:hidden}
+button{font-family:inherit;cursor:pointer}
+
+.wrapper{height:100vh;min-height:650px;position:relative;overflow:hidden}
+
+/* 상단 */
+.header{
+    position:absolute;left:0;right:0;top:0;height:76px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 55px;z-index:10;color:#fff;
+}
+.logo{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:900;letter-spacing:-1px}
+.logoMark{
+    width:43px;height:43px;border-radius:13px;
+    display:grid;place-items:center;font-size:23px;
+    background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.3);
+    backdrop-filter:blur(8px)
+}
+.header-right{display:flex;align-items:center;gap:24px;font-size:13px}
+.header-link{opacity:.9}
+.login{
+    padding:9px 17px;border:1px solid rgba(255,255,255,.55);
+    border-radius:20px;background:rgba(255,255,255,.12);color:#fff
+}
+
+/* 배경 */
+.background{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 17% 70%,rgba(106,76,255,.28),transparent 30%),
+      radial-gradient(circle at 84% 30%,rgba(26,185,255,.24),transparent 28%),
+      linear-gradient(135deg,#171f61 0%,#243aa0 42%,#522be1 100%);
+}
+.glow{position:absolute;border-radius:50%;filter:blur(4px);opacity:.55}
+.glow.one{width:450px;height:450px;background:#633cff;left:-170px;bottom:-210px}
+.glow.two{width:330px;height:330px;background:#17c8ff;right:-90px;top:130px}
+.grid{
+    position:absolute;inset:0;opacity:.09;
+    background-image:linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px);
+    background-size:55px 55px;
+}
+
+/* 중앙 소개 */
+.center{
+    position:absolute;z-index:4;top:105px;left:50%;
+    transform:translateX(-50%);text-align:center;color:#fff;width:90%;
+}
+.badge{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 15px;
+    border:1px solid rgba(255,255,255,.25);border-radius:30px;
+    background:rgba(255,255,255,.1);font-size:12px;backdrop-filter:blur(8px)
+}
+.center h1{font-size:45px;line-height:1.2;letter-spacing:-2.5px;margin-top:18px}
+.center h1 span{
+    background:linear-gradient(90deg,#8de8ff,#bba0ff,#fff);
+    -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.center p{font-size:15px;line-height:1.7;opacity:.83;margin-top:12px}
+
+/* 선택 영역 */
+.choice{
+    position:absolute;z-index:5;left:50%;top:270px;transform:translateX(-50%);
+    width:min(1180px,92vw);height:calc(100vh - 315px);min-height:370px;
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.card{
+    position:relative;overflow:hidden;border-radius:30px;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:38px;transition:.35s ease;box-shadow:0 25px 60px rgba(4,9,45,.28);
+    cursor:pointer
+}
+.card:hover{transform:translateY(-8px) scale(1.012);box-shadow:0 35px 80px rgba(4,9,45,.4)}
+.card:before{content:"";position:absolute;inset:0;z-index:-1}
+.fridge:before{
+    background:
+      radial-gradient(circle at 73% 36%,rgba(255,255,255,.7),transparent 7%),
+      radial-gradient(circle at 82% 61%,rgba(50,220,255,.55),transparent 18%),
+      linear-gradient(145deg,#0799d5,#27d4ee 45%,#3478ed 100%);
+}
+.campus:before{
+    background:
+      radial-gradient(circle at 75% 30%,rgba(255,255,255,.7),transparent 7%),
+      radial-gradient(circle at 80% 65%,rgba(161,113,255,.6),transparent 20%),
+      linear-gradient(145deg,#25218b,#4d35e7 48%,#822de9 100%);
+}
+.card:after{
+    content:"";position:absolute;width:280px;height:280px;border-radius:50%;
+    right:-100px;top:-90px;border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 0 0 35px rgba(255,255,255,.04),0 0 0 70px rgba(255,255,255,.025);
+}
+.icon{
+    position:absolute;right:45px;top:38px;width:150px;height:150px;
+    border-radius:42px;display:grid;place-items:center;font-size:78px;
+    background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);
+    box-shadow:inset 0 1px rgba(255,255,255,.3);backdrop-filter:blur(9px)
+}
+.card small{font-size:12px;opacity:.82;margin-bottom:8px}
+.card h2{font-size:30px;letter-spacing:-1.5px;margin-bottom:8px}
+.card p{font-size:13px;line-height:1.65;opacity:.9;max-width:440px}
+.card-button{
+    width:max-content;margin-top:23px;padding:13px 24px;border:0;border-radius:13px;
+    background:#fff;color:#2631a0;font-size:13px;font-weight:900;
+    box-shadow:0 9px 20px rgba(0,0,0,.18);transition:.2s
+}
+.card-button:hover{transform:translateY(-2px);box-shadow:0 13px 25px rgba(0,0,0,.25)}
+.campus .card-button{color:#4d29d7}
+
+/* 장식 아이콘 */
+.fridge-art{position:absolute;right:220px;top:55px;font-size:48px;opacity:.7;transform:rotate(-8deg)}
+.fridge-art.two{right:125px;top:135px;font-size:35px;transform:rotate(10deg)}
+.campus-art{position:absolute;right:210px;top:62px;font-size:48px;opacity:.7}
+.campus-art.two{right:115px;top:142px;font-size:35px}
+
+/* 하단 */
+.footer{
+    position:absolute;z-index:8;bottom:17px;left:0;right:0;text-align:center;
+    color:rgba(255,255,255,.58);font-size:10px
+}
+.footer span{margin:0 9px}
+
+/* 반응형 */
+@media(max-width:800px){
+    body{overflow:auto}.wrapper{height:auto;min-height:100vh;padding-bottom:25px}
+    .header{height:65px;padding:0 18px}.header-right{gap:10px}.header-link{display:none}
+    .center{top:88px}.center h1{font-size:30px}.center p{font-size:12px}
+    .choice{position:relative;top:auto;left:auto;transform:none;margin:190px auto 45px;
+            height:auto;min-height:0;grid-template-columns:1fr;width:92vw}
+    .card{height:330px;padding:25px;border-radius:23px}.icon{width:100px;height:100px;font-size:52px;right:25px;top:25px}
+    .card h2{font-size:25px}.fridge-art,.campus-art{right:150px}.fridge-art.two,.campus-art.two{right:90px}
+    .footer{position:relative;bottom:auto;margin-top:-32px}
+}
