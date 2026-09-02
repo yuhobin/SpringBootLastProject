@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -16,23 +18,32 @@
 	    <div class="collapse navbar-collapse" id="nav">
 	      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 my-2 my-lg-0">
 	        <li class="nav-item"><a class="nav-link fw-bold text-dark" href="#">레시피</a></li>
-	        <li class="nav-item"><a class="nav-link" href="#">냉장고 관리</a></li>
-	        <li class="nav-item"><a class="nav-link" href="#">식단플래너</a></li>
+	        <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="#">냉장고 관리</a></li>
+	        <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="#">식단플래너</a></li>
 	        <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
 	      </ul>
 	      <div class="d-flex align-items-center gap-2 ms-lg-4 mt-3 mt-lg-0">
 	        <a href="#" class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
 	          <i class="bi bi-bookmark-heart fs-5"></i>
 	        </a>
-	        <div class="dropdown">
+	        <div class="dropdown" th:if="${isLogin}">
 	          <button class="btn btn-outline-dark rounded-pill px-3 py-1-5 fw-semibold d-flex align-items-center gap-2" type="button">
-	            <i class="bi bi-person-circle"></i> 홍길동님
+	            <i class="bi bi-person-circle"></i> [[${vo.name}]]
+	          </button>
+	        </div>
+	         <div class="dropdown" th:if="${isLogin}">
+	          <button class="btn btn-outline-dark rounded-pill px-3 py-1-5 fw-semibold d-flex align-items-center gap-2" type="button" onclick="logout()">
+	            <i class="bi bi-person-circle"></i> 로그아웃
 	          </button>
 	        </div>
 	      </div>
 	    </div>
 	  </div>
 	</nav>
-	
+	<script>
+	function logout(){
+		location.href = "/member/logout"
+	}
+	</script>
 </body>
 </html>

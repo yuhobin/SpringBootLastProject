@@ -1,0 +1,392 @@
+@charset "UTF-8";
+		
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family:
+                    "Pretendard",
+                    "Noto Sans KR",
+                    Arial,
+                    sans-serif;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #fff8ef 0%,
+                            #fffdf9 45%,
+                            #f7f5ff 100%
+                    );
+
+            color: #202938;
+        }
+
+        /* 로그인 전체 */
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+            padding: 20px;
+        }
+
+
+        /* 로그인 카드 */
+
+        .login-card {
+            background: #ffffff;
+
+            border-radius: 28px;
+
+            padding: 45px 42px 40px;
+
+            box-shadow:
+                    0 20px 60px rgba(40, 35, 25, 0.10);
+
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+
+        /* 로고 */
+
+        .logo {
+            width: 62px;
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #ffb347,
+                            #ff8c42
+                    );
+
+            color: white;
+
+            font-size: 29px;
+
+            box-shadow:
+                    0 10px 25px rgba(255, 150, 70, 0.25);
+        }
+
+
+        .brand-title {
+            text-align: center;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .brand-subtitle {
+            text-align: center;
+
+            color: #8b93a1;
+
+            font-size: 13px;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* 입력 영역 */
+
+        .form-label {
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #3d4655;
+
+            margin-bottom: 8px;
+        }
+
+
+        .input-wrap {
+            position: relative;
+
+            margin-bottom: 18px;
+        }
+
+
+        .input-wrap i {
+            position: absolute;
+
+            left: 16px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #a4abb7;
+
+            font-size: 18px;
+
+            z-index: 2;
+        }
+
+
+        .form-control {
+            height: 54px;
+
+            border-radius: 14px;
+
+            border: 1px solid #e3e6eb;
+
+            background: #f8f9fb;
+
+            padding-left: 47px;
+
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+
+        .form-control:focus {
+            background: #fff;
+
+            border-color: #ffad55;
+
+            box-shadow:
+                    0 0 0 4px rgba(255, 173, 85, 0.12);
+        }
+
+
+        /* 로그인 옵션 */
+
+        .login-option {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin: 2px 0 22px;
+        }
+
+
+        .remember {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #7b8491;
+
+            font-size: 12px;
+        }
+
+
+        .remember input {
+            accent-color: #ff9b45;
+        }
+
+
+        .find-link {
+            color: #7b8491;
+
+            text-decoration: none;
+
+            font-size: 12px;
+        }
+
+
+        .find-link:hover {
+            color: #ff8c42;
+        }
+
+
+        /* 로그인 버튼 */
+
+        .btn-login {
+            width: 49%;
+
+            height: 54px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #ffb347,
+                            #ff8c42
+                    );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            box-shadow:
+                    0 10px 22px rgba(255, 145, 65, 0.22);
+
+            transition: 0.25s;
+        }
+
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                    0 14px 28px rgba(255, 145, 65, 0.30);
+        }
+
+
+        /* 구분선 */
+
+        .divider {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 27px 0 18px;
+
+            color: #adb3bd;
+
+            font-size: 11px;
+        }
+
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #e8eaed;
+        }
+
+
+        /* 소셜 로그인 */
+
+        .social-buttons {
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .social-btn {
+            flex: 1;
+
+            height: 48px;
+
+            border-radius: 13px;
+
+            border: 1px solid #e3e6eb;
+
+            background: white;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .social-btn:hover {
+            background: #f8f9fb;
+
+            transform: translateY(-1px);
+        }
+
+
+        .kakao {
+            background: #fee500;
+
+            border-color: #fee500;
+
+            color: #191919;
+        }
+
+
+        /* 회원가입 */
+
+        .join {
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-size: 13px;
+
+            color: #8b93a1;
+        }
+
+
+        .join a {
+            color: #ff8c42;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            margin-left: 4px;
+        }
+
+
+        .join a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* 모바일 */
+
+        @media (max-width: 480px) {
+
+            .login-container {
+                padding: 15px;
+            }
+
+            .login-card {
+                padding: 35px 25px 30px;
+
+                border-radius: 22px;
+            }
+
+            .brand-title {
+                font-size: 23px;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+

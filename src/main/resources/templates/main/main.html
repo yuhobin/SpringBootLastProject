@@ -23,7 +23,18 @@
         <div class="header-right">
             <span class="header-link">AI 서비스 소개</span>
             <span class="header-link">이용 안내</span>
-            <button class="login" onclick="alert('로그인 화면으로 이동합니다.')">로그인</button>
+            <button class="login" onclick="login()"
+            th:if="${!isLogin}"
+            >로그인</button>
+            <div th:if="${isLogin}"
+            class="d-flex align-items-center gap-3"
+            >
+            <span>
+            	<strong th:text="${username}" style="color: white;"></strong>님
+            </span>
+            <a href="/admin/main" th:if="${role=='ROLE_ADMIN'}" style="color: white;">(관리자)</a>
+            <button class="login" onclick="logout()">로그아웃</button>
+            </div>
         </div>
     </header>
 
@@ -80,6 +91,12 @@ function goFridge(){
 function goCampus(){
     // 실제 프로젝트에서는 아래 주소를 교육센터 메인 URL로 변경
     location.href = "/edu/main";
+}
+function login(){
+	location.href = "/member/login"
+}
+function logout(){
+	location.href = "/member/logout"
 }
 </script>
 </body>
