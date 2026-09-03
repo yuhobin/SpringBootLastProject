@@ -2,7 +2,7 @@ version: "3.8"
 services:
   app:
    build: .
-   image: ${DOCKER_USERNAME}/last-app:latest
+   image: yuhobin/last-app:latest
    container_name: last-app
    ports:
      - "9090:9090"
