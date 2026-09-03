@@ -1,87 +1,68 @@
 name: Deploy With Docker to AWS Server
-# 실행 조건
+
 on:
   push:
-    # main으로 commit & push인 경우 
     branches:
-      - main #main commit and push = [main,master]
+      - main
+
 jobs:
   deploy:
-    # Github Actions가 제공하는 Ubuntu환경에서 실행
-    # AWS EC2가 아니고 Github Actions 임시로 사용하는 Ubuntu
     runs-on: ubuntu-latest
-    #  실행 순서 지정 
-    #  name = stage = step
+    
     steps:
-     # 어떤 소스를 가지고 올지 => src / build.grade gradlew Dockerfile
-     #코드 체크 (Repository)
-     - name: Checkout:repository
-       uses: actions/checkout@v4
-     #JDK 설정 => SpringBoot프로젝트를 build => JDK 설정 
-     - name: SetUp JDK 21
-       uses: actions/setup-java@v4
-       with:
-         # 가장 최소단위 JDK = 이클립스 JDK 사용
-         distribution: 'temurin'
-         java-version: '21'
-     # 환경 설정 
-     # DB관련 => .env 
-     - name: 환경설정
-       run: |
-          # 기존의 파일 삭제
-          rm -f .env
-          # 새로운 .env 생성 
-          touch .env
-          echo "DB_URL=${{secrets.DB_URL}}" >> .env
-          echo "DB_USERNAME=${{secrets.DB_USERNAME}}" >> .env
-          echo "DB_PASSWORD=${{secrets.DB_PASSWORD}}" >> .env
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: SetUp JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
           
-     # Gradlew 권한 부여 
-     - name: Set gradlew permission
-       run: |
-         chmod +x ./gradlew
-     # Gradle Build 
-     - name: Build with Gradlew
-       run: ./gradlew clean build -x test
-     # Docker Hub 연결 = 로그인 
-     - name: Login DockerHub
-       run: |
-         echo "${{secrets.DOCKER_PASSWORD}}" |\
-         docker login \
-         -u "${{secrets.DOCKER_USERNAME}}" \
-         --password-stdin
-     # Docker 이미지 생성 
-     - name: Build Docker Image 
-       run: |
-         docker build \
-          -t ${{secrets.DOCKER_USERNAME}}/last-app:latest .
-     # DockerHub에 올린다 
-     - name: Push Docker Image 
-       run: |
-         docker push \
-          ${{secrets.DOCKER_USERNAME}}/last-app:latest
-     # AWS 연결 => DockerHub 데이터  Pull
-     - name: Set SSH key Permission
-       run: |
-         mkdir -p ~/.ssh
-         echo "${{secrets.SERVER_SSH_KEY}}" > ~/.ssh/id_ed25519
-         chmod 600 ~/.ssh/id_ed25519
-     # ADD SSH Key 
-     - name: Add SSH Key 
-       uses: webfactory/ssh-agent@v0.5.3
-       with:
-         ssh-private-key: ${{secrets.SERVER_SSH_KEY}}
-     # Add Known_hosts
-     - name: Add Known_hosts
-       run: |
-         ssh-keyscan -H ed25519 13.124.133.9 >> ~/.ssh/known_hosts
-     # Deploy on service DockerHub Image using
-     - name: DockerHub Image using
-       run: |
-         ssh ubuntu@13.124.133.9 << 'EOF'
-           docker stop last-app || true
-           docker rm last-app || true
-           docker pull ${{secrets.DOCKER_USERNAME}}/last-app:latest
-           docker run -d --name last-app --env-file .env -p 9090:9090 ${{secrets.DOCKER_USERNAME}}/last-app:latest
-         EOF
-  
+      - name: Set gradlew permission
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradlew
+        run: ./gradlew clean build -x test
+
+      - name: Login DockerHub
+        run: |
+          echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u "${{secrets.DOCKER_USERNAME}}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t ${{secrets.DOCKER_USERNAME}}/last-app:latest .
+
+      - name: Push Docker Image
+        run: docker push ${{secrets.DOCKER_USERNAME}}/last-app:latest
+
+      - name: Set SSH key Permission
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{secrets.SERVER_SSH_KEY}}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Add SSH Key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{secrets.SERVER_SSH_KEY}}
+
+      - name: Add Known_hosts
+        run: ssh-keyscan -H ed25519 13.124.133.9 >> ~/.ssh/known_hosts
+
+      - name: DockerHub Image using
+        run: |
+          ssh ubuntu@13.124.133.9 << 'EOF'
+          sudo docker stop last-app || true
+          sudo docker rm last-app || true
+          
+          # 도커 이미지를 다운로드합니다.
+          sudo docker pull ${{secrets.DOCKER_USERNAME}}/last-app:latest
+          
+          sudo docker run -d \
+            --name last-app \
+            -p 9090:9090 \
+            -e DB_URL="${{secrets.DB_URL}}" \
+            -e DB_USERNAME="${{secrets.DB_USERNAME}}" \
+            -e DB_PASSWORD="${{secrets.DB_PASSWORD}}" \
+            ${{secrets.DOCKER_USERNAME}}/last-app:latest
+          EOF
