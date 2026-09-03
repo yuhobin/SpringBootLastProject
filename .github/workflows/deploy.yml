@@ -82,13 +82,13 @@ jobs:
        run: |
          ssh ubuntu@13.124.133.9 "mkdir -p /home/ubuntu/app"
          scp docker-compose.yml ubuntu@13.124.133.9:/home/ubuntu/app/docker-compose.yml
-          
+    
      # Deploy on service DockerHub Image using
      - name: DockerHub Image using
        run: |
          ssh ubuntu@13.124.133.9 << 'EOF'
-           cd /home/ubuntu/app
-           docker-compose pull
-           docker-compose down
-           docker-compose up -d
+          cd /home/ubuntu/app
+          docker-compose pull
+          docker-compose down
+          docker-compose up -d
          EOF
