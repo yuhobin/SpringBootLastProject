@@ -83,8 +83,8 @@ jobs:
      - name: DockerHub Image using
        run: |
          ssh ubuntu@13.124.133.9 << 'EOF'
-          docker stop last-app || true
-          docker rm last-app || true
-          docker pull ${{secrets.DOCKER_USERNAME}}/last-app:latest
-          docker run -d --name last-app --env-file ~/app/.env -p 9090:9090 ${{secrets.DOCKER_USERNAME}}/last-app:latest
+           cd /home/ubuntu/app
+           docker-compose pull
+           docker-compose down
+           docker-compose up -d
          EOF
