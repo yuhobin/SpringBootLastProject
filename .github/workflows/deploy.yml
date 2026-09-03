@@ -82,6 +82,6 @@ jobs:
            docker stop last-app || true
            docker rm last-app || true
            docker pull ${{secrets.DOCKER_USERNAME}}/last-app:latest
-           docker run -d --name last-app --envfile .env -p 9090:9090 ${{secrets.DOCKER_USERNAME}}/last-app:latest
+           docker run -d --name last-app --env-file .env -p 9090:9090 ${{secrets.DOCKER_USERNAME}}/last-app:latest
          EOF
   
